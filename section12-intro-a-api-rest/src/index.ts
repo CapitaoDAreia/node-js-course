@@ -23,6 +23,22 @@ app.get(`/games`, (_req: Request, res: Response) => {
   res.json(DB.games);
 });
 
+app.get(`/games/:id`, (req: Request, res: Response) => {
+  const id = Number(req.params.id);
+
+  if (isNaN(id)) {
+    res.sendStatus(400);
+  } else {
+    const response = DB.games.find((game) => game.id === id);
+    if (response) {
+      res.statusCode = 200;
+      res.send(response);
+    } else {
+      res.sendStatus(404);
+    }
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is listen on PORT ${PORT}`);
 });
