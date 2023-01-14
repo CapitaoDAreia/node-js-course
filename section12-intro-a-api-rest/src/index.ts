@@ -6,6 +6,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+//GET
 app.get(`/`, (_req: Request, res: Response) => {
   const avaiableRoutes = [
     { get: ["/", "/games", "/games/:id"] },
@@ -39,22 +40,40 @@ app.get(`/games/:id`, (req: Request, res: Response) => {
   }
 });
 
-/*
-  **TODO
-  Dev a route to edit informations in games
-  Search for id with .find
-  Capture data sent to edition and execute the update actions
-*/
+//PUT
+app.put(`/games/:id`, (req: Request, res: Response) => {
+  const id = Number(req.params.id);
+  const boilerplate = DbModel.games[1];
 
-/*
-  **TODO
-  Develop a route to delete existing games
-  capture request creation data and validate each one of them
-  use findIndex, use id as parameter
-  return operation status and maybe even some data
+  if (isNaN(id)) {
+    res.sendStatus(400);
+  } else {
+    const game = DB.games.find((game) => game.id === id) ?? boilerplate;
 
-*/
+    const { title, year, price, platforms } = req.body;
 
+    if (title) {
+      game.title = title ?? "";
+    }
+
+    if (year) {
+      game.year = year;
+    }
+
+    if (price) {
+      game.year = price;
+    }
+
+    if (platforms) {
+      game.platforms = platforms;
+    }
+
+    res.statusCode = 200;
+    res.send(game);
+  }
+});
+
+//DELETE
 app.delete(`/games/:id`, (req: Request, res: Response) => {
   const id = Number(req.params.id);
 
@@ -73,14 +92,7 @@ app.delete(`/games/:id`, (req: Request, res: Response) => {
   }
 });
 
-/*
-  **TODO
-  Dev a route to register new games
-  Capture creation data in the request and validade each one
-  Return req status and maybe even some data
-
-*/
-
+//POST
 app.post(`/games`, (req: Request, res: Response) => {
   const { title, price, year, platforms } = req.body;
   const index = DB.games.length;
