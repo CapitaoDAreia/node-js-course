@@ -39,8 +39,6 @@ app.get(`/games/:id`, (req: Request, res: Response) => {
   }
 });
 
-
-
 /*
   **TODO
   Dev a route to edit informations in games
@@ -56,6 +54,24 @@ app.get(`/games/:id`, (req: Request, res: Response) => {
   return operation status and maybe even some data
 
 */
+
+app.delete(`/games/:id`, (req: Request, res: Response) => {
+  const id = Number(req.params.id);
+
+  if (isNaN(id)) {
+    res.sendStatus(400);
+  } else {
+    const index = DB.games.findIndex((game) => game.id === id);
+    if (index != -1) {
+      DB.games.splice(index, 1);
+
+      res.statusCode = 200;
+      res.send(DB.games);
+    } else {
+      res.sendStatus(404);
+    }
+  }
+});
 
 /*
   **TODO
