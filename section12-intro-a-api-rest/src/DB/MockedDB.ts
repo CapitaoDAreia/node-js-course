@@ -1,4 +1,4 @@
-const DB = {
+export const DB = {
   games: [
     {
       id: 1,
@@ -24,5 +24,15 @@ const DB = {
   ],
 };
 
+export let DbModel: typeof DB = {
+  games: [
+    {
+      id: 0,
+      title: "",
+      year: 0,
+      price: 0,
+      platforms: { ps: false, xbox: false, pc: false },
+    },
+  ],
+};
 
-export default DB
