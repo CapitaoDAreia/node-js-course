@@ -13,6 +13,9 @@ const Users = ConnectionWithDatabase.define("family", {
   age: {
     type: DataTypes.INTEGER
   },
+  CreatedAt: {
+    type: DataTypes.TIME
+  }
 }, {freezeTableName: true, timestamps: false, createdAt: false, updatedAt: false});
 
 
