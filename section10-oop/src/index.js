@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Film_1 = require("./classes/Film/Film");
+var PitBull_1 = require("./classes/Dog/PitBull");
 /*
     ---------------- FILM EXAMPLE ----------------
 */
@@ -14,3 +15,11 @@ FastAndFurious.reprod();
 FastAndFurious.getIsPlayed();
 FastAndFurious.getInfo();
 console.log("\n\n");
+/*
+    ---------------- DOG EXAMPLE - INHERITANCE ----------------
+*/
+console.log("\n\n---------------- DOG EXAMPLE ----------------");
+var Pacoca = new PitBull_1.PitBull("Paçoca", "PitBull", "Black", 60, "Blue Outfit");
+Pacoca.bark();
+Pacoca.getDescription();
+Pacoca.getOutFit();
