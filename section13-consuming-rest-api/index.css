@@ -1,0 +1,79 @@
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #635f5f;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #313131;
+    border-radius: 1px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+*{
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+    background-color: #635f5f;
+}
+
+.content{
+    width: 500px;
+    max-height: 500px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.game{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+#container{
+    overflow-y: scroll;
+    width: 400px;
+    max-height: 200px;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#form div{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+p{
+    border: .5px solid #4b4a4a;
+    padding: 8px;
+    margin: 5px;
+}
+
+.req-button{
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Consuming REST API</title>
+</head>
+<body onload="fill()">
+    <div class="main" >
+        <div>
+            <h1>Consumindo REST API</h1>
+        </div>
+        <!-- <button onclick="get()" class="req-button">
+            Clique Para Requisitar
+        </button> -->
+        <div class="content">
+            <h2>Jogos</h3>
+            <div id="container">
+                
+            </div>
+        </div>
+        <div class="content">
+            <h2>Cadastre</h3>
+            <form id="form" action="">
+                <input type="text" name="title" id="title" placeholder="Title">
+                <input type="number" name="year" id="year" placeholder="Year">
+                <input type="number" name="price" id="price" placeholder="Price">
+                <select name="platform" id="platform" >
+                    <option value="PS">PS</option>
+                    <option value="XBOX">XBOX</option>
+                    <option value="PC">PC</option>
+                    <option value="PS/XBOX">PS/XBOX</option>
+                    <option value="XBOX/PC">XBOX/PC</option>
+                    <option value="PC/XBOX">PC/PS</option>
+                    <option value="ALL">ALL</option>
+                </select>
+                <div>
+                    <button type="submit">CADASTRAR</button>
+                    <button type="reset">RESETAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="index.js"></script>
+</html>
